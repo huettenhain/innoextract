@@ -378,7 +378,7 @@ void header::load(std::istream & is, const version & version) {
 	}
 	
 	if(version >= INNO_VERSION(6, 4, 0)) {
-		is.read(password.sha256, 4);
+		is.read(password.check, 4);
 		password.type = crypto::PBKDF2_SHA256_XChaCha20;
 	} else if(version >= INNO_VERSION(5, 3, 9)) {
 		is.read(password.sha1, std::streamsize(sizeof(password.sha1)));
